@@ -891,11 +891,11 @@ const Portfolio = () => {
       <nav className="navbar">
         <div className="navbar-brand">SK</div>
         <ul className="nav-links">
-          <li className="nav-link" onClick={() => scrollToSection('about')}>About</li>
-          <li className="nav-link" onClick={() => scrollToSection('skills')}>Skills</li>
-          <li className="nav-link" onClick={() => scrollToSection('experience')}>Experience</li>
-          <li className="nav-link" onClick={() => scrollToSection('projects')}>Projects</li>
-          <li className="nav-link" onClick={() => scrollToSection('contact')}>Contact</li>
+          <li className="nav-link" onClick={() => { const el = document.getElementById('about'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>About</li>
+          <li className="nav-link" onClick={() => { const el = document.getElementById('skills'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Skills</li>
+          <li className="nav-link" onClick={() => { const el = document.getElementById('experience'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Experience</li>
+          <li className="nav-link" onClick={() => { const el = document.getElementById('projects'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Projects</li>
+          <li className="nav-link" onClick={() => { const el = document.getElementById('contact'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Contact</li>
         </ul>
         <div
           className="theme-toggle"
