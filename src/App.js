@@ -220,15 +220,12 @@ const Portfolio = () => {
           font-weight: 700;
           line-height: 1.2;
           margin-bottom: 1.5rem;
-          background: linear-gradient(135deg, var(--accent), #0099ff);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: #ffffff;
         }
 
         .hero-text p {
           font-size: 1.1rem;
-          color: var(--text-secondary);
+          color: #e0e0e0;
           margin-bottom: 2rem;
           max-width: 500px;
         }
@@ -882,6 +879,7 @@ const Portfolio = () => {
           }
 
           .footer-content {
+          
             grid-template-columns: 1fr;
           }
         }
