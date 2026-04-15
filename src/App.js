@@ -2,14 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const Portfolio = () => {
   const [isDark, setIsDark] = useState(true);
-  const [scrollY, setScrollY] = useState(0);
   const [visibleSections, setVisibleSections] = useState({});
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  useEffect (() => {
+
+  },[]);
 
   useEffect(() => {
     const observerOptions = {
