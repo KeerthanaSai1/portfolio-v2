@@ -4,10 +4,6 @@ const Portfolio = () => {
   const [isDark, setIsDark] = useState(true);
   const [visibleSections, setVisibleSections] = useState({});
 
-  useEffect (() => {
-
-  },[]);
-
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -31,11 +27,6 @@ const Portfolio = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <div className={`${isDark ? 'dark' : 'light'}`}>
@@ -66,15 +57,6 @@ const Portfolio = () => {
           --border: #e2e8f0;
         }
 
-        .dark {
-          --primary: #0a0e27;
-          --secondary: #1a1f3a;
-          --accent: #00d4ff;
-          --text-primary: #ffffff;
-          --text-secondary: #a0aec0;
-          --border: #2d3748;
-        }
-
         body {
           background: var(--primary);
           color: var(--text-primary);
@@ -90,7 +72,7 @@ const Portfolio = () => {
           left: 0;
           right: 0;
           height: 70px;
-          background: rgba(10, 14, 39, 0.7);
+          background: rgba(10, 14, 39, 0.95);
           backdrop-filter: blur(10px);
           border-bottom: 1px solid var(--border);
           display: flex;
@@ -102,17 +84,14 @@ const Portfolio = () => {
         }
 
         .light .navbar {
-          background: rgba(255, 255, 255, 0.7);
+          background: rgba(255, 255, 255, 0.95);
         }
 
         .navbar-brand {
           font-size: 1.5rem;
           font-weight: 700;
           font-family: 'Sora', sans-serif;
-          background: linear-gradient(135deg, var(--accent), #0099ff);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          color: var(--accent);
         }
 
         .nav-links {
@@ -183,6 +162,7 @@ const Portfolio = () => {
           margin-top: 70px;
           position: relative;
           overflow: hidden;
+          background: var(--primary);
         }
 
         .hero::before {
@@ -196,6 +176,7 @@ const Portfolio = () => {
           top: -200px;
           right: -200px;
           animation: float 6s ease-in-out infinite;
+          z-index: 0;
         }
 
         @keyframes float {
@@ -225,9 +206,10 @@ const Portfolio = () => {
 
         .hero-text p {
           font-size: 1.1rem;
-          color: #e0e0e0;
+          color: #b0b8c8;
           margin-bottom: 2rem;
           max-width: 500px;
+          line-height: 1.8;
         }
 
         .cta-button {
@@ -313,6 +295,7 @@ const Portfolio = () => {
           position: relative;
           display: inline-block;
           width: 100%;
+          color: var(--text-primary);
         }
 
         .section-title::after {
@@ -424,6 +407,7 @@ const Portfolio = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          color: var(--text-primary);
         }
 
         .skill-percentage {
@@ -534,6 +518,7 @@ const Portfolio = () => {
           font-size: 1.2rem;
           font-weight: 700;
           margin-bottom: 0.5rem;
+          color: var(--text-primary);
         }
 
         .timeline-company {
@@ -607,8 +592,7 @@ const Portfolio = () => {
         .project-image {
           width: 100%;
           height: 200px;
-          background: linear-gradient(135deg, var(--accent), #0099ff);
-          opacity: 0.2;
+          background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 153, 255, 0.2));
           display: flex;
           align-items: center;
           justify-content: center;
@@ -641,6 +625,7 @@ const Portfolio = () => {
           font-size: 1.3rem;
           font-weight: 700;
           margin-bottom: 0.5rem;
+          color: var(--text-primary);
         }
 
         .project-description {
@@ -708,6 +693,7 @@ const Portfolio = () => {
         .education-title {
           font-size: 1.2rem;
           font-weight: 700;
+          color: var(--text-primary);
         }
 
         .education-year {
@@ -879,7 +865,6 @@ const Portfolio = () => {
           }
 
           .footer-content {
-          
             grid-template-columns: 1fr;
           }
         }
@@ -889,11 +874,26 @@ const Portfolio = () => {
       <nav className="navbar">
         <div className="navbar-brand">SK</div>
         <ul className="nav-links">
-          <li className="nav-link" onClick={() => { const el = document.getElementById('about'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>About</li>
-          <li className="nav-link" onClick={() => { const el = document.getElementById('skills'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Skills</li>
-          <li className="nav-link" onClick={() => { const el = document.getElementById('experience'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Experience</li>
-          <li className="nav-link" onClick={() => { const el = document.getElementById('projects'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Projects</li>
-          <li className="nav-link" onClick={() => { const el = document.getElementById('contact'); if(el) el.scrollIntoView({ behavior: 'smooth' });}}>Contact</li>
+          <li className="nav-link" onClick={() => {
+            const el = document.getElementById('about');
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>About</li>
+          <li className="nav-link" onClick={() => {
+            const el = document.getElementById('skills');
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>Skills</li>
+          <li className="nav-link" onClick={() => {
+            const el = document.getElementById('experience');
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>Experience</li>
+          <li className="nav-link" onClick={() => {
+            const el = document.getElementById('projects');
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>Projects</li>
+          <li className="nav-link" onClick={() => {
+            const el = document.getElementById('contact');
+            if(el) el.scrollIntoView({ behavior: 'smooth' });
+          }}>Contact</li>
         </ul>
         <div
           className="theme-toggle"
@@ -911,7 +911,10 @@ const Portfolio = () => {
           <div className="hero-text">
             <h1>Saikeerthana</h1>
             <p>Software Developer specializing in ETL, .NET, and healthcare data solutions. Crafting elegant, scalable systems that drive business impact.</p>
-            <button className="cta-button" onClick={() => scrollToSection('contact')}>
+            <button className="cta-button" onClick={() => {
+              const el = document.getElementById('contact');
+              if(el) el.scrollIntoView({ behavior: 'smooth' });
+            }}>
               Get In Touch
             </button>
           </div>
